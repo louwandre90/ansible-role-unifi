@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-unifi
+- include: install.yml
+  tags:
+      - install
+

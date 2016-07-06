@@ -1,0 +1,19 @@
+---
+# Install tasks for ansible-role-unifi
+- name: Add Unifi repo
+  become: yes
+  apt_repository: repo='deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' state=present
+
+- name: Add apt key
+  become: yes
+  apt_key: keyserver=keyserver.ubuntu.com id=C0A52C50
+
+- name: Install apt transport https
+  become: yes
+  apt: pkg=apt-transport-https state=installed update_cache=true
+
+- name: Install unifi
+  become: yes
+  apt: pkg=unifi state=installed update_cache=true
+
+
